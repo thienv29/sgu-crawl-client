@@ -13,14 +13,26 @@ function App() {
     const [Loading, setLoading] = useState(false);
     const handleClick = async () => {
         setLoading(true);
-
+        
+        // getListDiem(ListMssv)
+        // getListInfo(ListMssv)
         const listDiem = await getListDiem(ListMssv)
         const listInfo = await getListInfo(ListMssv)
         const listResult = mergeListInfoRecords(listInfo.listSuccess,listDiem.listSuccess)
         saveByExcel(listResult)
-        setLoading(false)
-
-       
+        // Promise.all([getListDiem(ListMssv),getListInfo(ListMssv)])
+        // .then(([diem,info]) => {
+            
+        // })
+        // axios
+        //     .post("http://localhost:5000/diem/list", ListMssv)
+        //     .then(function (response) {
+        //         setLoading(false);
+        //         setListdiem(response.data.listObjectDiem);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
     };
     const hanhdleOnchange = (e) => {
         setListMssv(e.target.value.split("\n"));

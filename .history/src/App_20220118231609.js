@@ -13,7 +13,9 @@ function App() {
     const [Loading, setLoading] = useState(false);
     const handleClick = async () => {
         setLoading(true);
-
+        
+        // getListDiem(ListMssv)
+        // getListInfo(ListMssv)
         const listDiem = await getListDiem(ListMssv)
         const listInfo = await getListInfo(ListMssv)
         const listResult = mergeListInfoRecords(listInfo.listSuccess,listDiem.listSuccess)

@@ -1,9 +1,11 @@
 import "./app.scss";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import { useState } from "react";
+import axios from "axios";
 
 import logo from "./logo.gif";
-import { getListDiem, getListInfo, mergeListInfoRecords, saveByExcel } from "./lib";
+import { getListDiem, getListInfo, mergeListInfoRecords } from "./lib";
 //https://sguapi.herokuapp.com
 
 function App() {
@@ -11,16 +13,31 @@ function App() {
 
     const [ListMssv, setListMssv] = useState("");
     const [Loading, setLoading] = useState(false);
+    const [Listdiem, setListdiem] = useState([]);
+    const [ListInfo, setListInfo] = useState([]);
     const handleClick = async () => {
         setLoading(true);
-
+        
+        // getListDiem(ListMssv)
+        // getListInfo(ListMssv)
         const listDiem = await getListDiem(ListMssv)
         const listInfo = await getListInfo(ListMssv)
         const listResult = mergeListInfoRecords(listInfo.listSuccess,listDiem.listSuccess)
-        saveByExcel(listResult)
-        setLoading(false)
-
-       
+        saveByExcel
+            console.log(listResult);
+        // Promise.all([getListDiem(ListMssv),getListInfo(ListMssv)])
+        // .then(([diem,info]) => {
+            
+        // })
+        // axios
+        //     .post("http://localhost:5000/diem/list", ListMssv)
+        //     .then(function (response) {
+        //         setLoading(false);
+        //         setListdiem(response.data.listObjectDiem);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
     };
     const hanhdleOnchange = (e) => {
         setListMssv(e.target.value.split("\n"));
