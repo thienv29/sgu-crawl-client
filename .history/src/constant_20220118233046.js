@@ -1,0 +1,1 @@
+export const DOMAIN = "https://sguapi.herokuapp.com/"

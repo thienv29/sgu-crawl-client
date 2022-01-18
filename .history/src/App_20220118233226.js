@@ -59,7 +59,7 @@ function App() {
                     <div className="modal">
                         <div className="modal-content">
                             <div className="modal-content-main">
-                                <img src={logo} alt="loaded" />
+                                <img src={logo} alt="" />
                                 <span className="text-waiting">
                                     Thời gian chờ tùy vào số lượng sinh viên bạn cung cấp
                                 </span>
