@@ -17,7 +17,7 @@ function App() {
         const listDiem = await getListDiem(ListMssv)
         const listInfo = await getListInfo(ListMssv)
         const listResult = mergeListInfoRecords(listInfo.listSuccess,listDiem.listSuccess)
-        console.log(listResult);
+        log
         saveByExcel(listResult)
         setLoading(false)
 
